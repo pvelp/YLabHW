@@ -27,6 +27,22 @@ public class InMemPlayerRepositoryImpl implements PlayerRepository {
     }
 
     @Override
+    public Player findByUsername(String username) {
+        for (Player player : players) {
+            if (player.getUsername().equals(username)) {
+                return player;
+            }
+        }
+        ;
+        return null;
+    }
+
+    @Override
+    public List<Player> findAll() {
+        return players;
+    }
+
+    @Override
     public Player insert(Player player) {
         players.add(player);
         return player;
